@@ -58,9 +58,6 @@ function WikipediaSearch() {
       </div>
       <div style={{ marginLeft: '100px' }}>
         <form>
-          {/* <label>
-            Search Wikipedia:
-          </label> */}
           <input
             type='text'
             style={{
@@ -103,19 +100,19 @@ function WikipediaSearch() {
                 href={result.link}
                 data-testid='suggestion'
                 style={{
-                textDecoration: 'none',
-                color: 'cornflowerblue',
-                marginLeft: '10px',
+                  textDecoration: 'none',
+                  color: 'cornflowerblue',
+                  marginLeft: '10px',
                 }}
-            >
+              >
                 {result.title}
-            </a>
+              </a>
             </div>
-        ))}
+          ))}
         </ul>
+      </div>
     </div>
-    </div>
-);
+  );
 }
 
 export default WikipediaSearch;
