@@ -1,33 +1,31 @@
-import React, { useState, useEffect } from 'react';
+Search.js
+
+import React, { useState,useEffect } from 'react';
 import fetchData from './utillity';
+
 
 function Search() {
   const [searchTerm, setSearchTerm] = useState('Programming');
   const [results, setResults] = useState([]);
-  const [timeoutId, setTimeoutId] = useState(null);
-
   useEffect(() => {
-    if (searchTerm) {
-      clearTimeout(timeoutId); // Clear any existing timeout when searchTerm changes.
-      const newTimeoutId = setTimeout(() => {
+    const delay = setTimeout(() => {
+      if (searchTerm) {
         fetchData(searchTerm, setResults);
-      }, 500);
-      setTimeoutId(newTimeoutId); // Store the new timeout ID.
-    } else {
-      setResults([]);
-    }
+      } else {
+        setResults([]);
+      }
+    }, 500);
+    return () => clearTimeout(delay);
   }, [searchTerm]);
-
   const handleSearchTermChange = (event) => {
     setSearchTerm(event.target.value);
-  };
+  }
 
   const handleSearchInputBlur = () => {
     setTimeout(() => {
       setResults([]);
     }, 200);
-  };
-
+  }
   return (
     <div>
       Learn React
@@ -40,8 +38,8 @@ function Search() {
         data-testid="searchterm"
       />
       <ul>
-        {results.map((result, index) => (
-          <li key={index}>
+        {results.map((result) => (
+          <li>
             <a href={result.url} data-testid="suggestion">
               {result.title}
             </a>
