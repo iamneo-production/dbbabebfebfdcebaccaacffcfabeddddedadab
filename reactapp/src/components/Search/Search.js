@@ -1,9 +1,5 @@
-Search.js
-
 import React, { useState,useEffect } from 'react';
 import fetchData from './utillity';
-
-
 function Search() {
   const [searchTerm, setSearchTerm] = useState('Programming');
   const [results, setResults] = useState([]);
