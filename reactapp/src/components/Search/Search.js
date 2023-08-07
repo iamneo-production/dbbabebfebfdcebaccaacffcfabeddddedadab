@@ -34,18 +34,18 @@ function Search() {
         onBlur={handleSearchInputBlur}
         placeholder="Type your search term"
         data-testid="searchterm"
-      />
-      <ul>
-        {results.map((result) => (
-          <li>
-            <a href={result.url} data-testid="suggestion">
-              {result.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+ />
+ <ul>
+{results.map((result) => (
+<li>
+<a href={result.url} data-testid="suggestion">
+{result.title}
+</a>
+</li>
+))}
+</ul>
+</div>
+);
 }
 
 export default Search;
